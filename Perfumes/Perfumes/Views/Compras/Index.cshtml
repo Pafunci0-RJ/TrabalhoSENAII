@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Perfumes.Models.Compra>
+
+@{
+    ViewData["Title"] = "Compras";
+}
+
+<h1>Compras</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Horario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CompraId" style="color:darkorchid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CompraId" style="color:darkorchid">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CompraId" style="color:darkorchid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
